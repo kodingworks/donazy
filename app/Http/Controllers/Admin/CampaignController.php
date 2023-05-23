@@ -51,7 +51,7 @@ class CampaignController extends Controller
      */
     public function store(CampaignStoreRequest $request)
     {
-        $campaign = Campaign::create($request->validated());
+        $campaign = Campaign::create($request->validation());
 
         if ($request->hasFile('cover')) {
             $campaign->addMediaFromRequest('cover')->toMediaCollection();
@@ -93,7 +93,7 @@ class CampaignController extends Controller
      */
     public function update(CampaignUpdateRequest $request, Campaign $campaign)
     {
-        $campaign->update($request->validated());
+        $campaign->update($request->validation());
 
         if ($request->hasFile('cover')) {
             $campaign->clearMediaCollection();

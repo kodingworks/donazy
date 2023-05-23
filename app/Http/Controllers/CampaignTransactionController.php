@@ -64,7 +64,7 @@ class CampaignTransactionController extends Controller
         /** @var Transaction $transaction */
         $transaction = $campaign
             ->transactions()
-            ->create($request->validated());
+            ->create($request->validation());
 
         if (Auth::check()) {
             return redirect()->route('transactions.show', ['code' => $transaction->code]);

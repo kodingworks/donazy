@@ -59,7 +59,7 @@ class ProfileUpdateRequest extends FormRequest
         return $rules;
     }
 
-    public function validated(): array
+    public function validation(): array
     {
         $data = parent::validated();
 

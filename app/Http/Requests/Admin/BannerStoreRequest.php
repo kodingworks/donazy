@@ -35,7 +35,7 @@ class BannerStoreRequest extends FormRequest
         ];
     }
 
-    public function validated()
+    public function validation()
     {
         return ['sort' => $this->post('sort') ?? 1];
     }

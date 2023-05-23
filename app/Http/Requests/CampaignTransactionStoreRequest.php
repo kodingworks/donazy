@@ -58,7 +58,7 @@ class CampaignTransactionStoreRequest extends FormRequest
         ];
     }
 
-    public function validated()
+    public function validation()
     {
         $validatedData = [
             'user_email' => $this->email,

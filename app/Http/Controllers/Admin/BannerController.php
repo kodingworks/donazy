@@ -45,7 +45,7 @@ class BannerController extends Controller
     public function store(BannerStoreRequest $request)
     {
         /** @var Banner */
-        $banner = Banner::create($request->validated());
+        $banner = Banner::create($request->validation());
 
         if ($request->hasFile('image')) {
             $banner->addMediaFromRequest('image')->toMediaCollection();
