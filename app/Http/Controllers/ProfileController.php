@@ -19,7 +19,7 @@ class ProfileController extends Controller
 
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        Auth::user()->update($request->validated());
+        Auth::user()->update($request->validation());
 
         return back()->with('success', __('crud.updated', ['name' => 'profile']));
     }

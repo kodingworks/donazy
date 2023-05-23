@@ -51,7 +51,7 @@ class CampaignStoreRequest extends FormRequest
         ];
     }
 
-    public function validated()
+    public function validation()
     {
         $data = parent::validated();
 
