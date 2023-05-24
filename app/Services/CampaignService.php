@@ -6,18 +6,23 @@ use App\Models\Campaign;
 
 class CampaignService
 {
-  public function getData($request) {
-    $search = $request->search;
+  public function getData() {
 
     $query = Campaign::query()->published();
 
-    $campaigns = PaginationService::make($query)->build();
-
-    $campaigns->when($search, function ($query, $search) {
-      return $query->where('campaigns.name', 'like', '%' . $search . '%');
-    });
+    $campaigns = PaginationService::make($query)
+            ->setSearchables([
+                'name',
+            ])
+            ->build();
       
-    return $campaigns;
 
+    return $campaigns;
   } 
+
+  public function getDetail() {
+    $campaign = Campaign::query()->published()->first();
+
+    return $campaign;
+  }
 }

@@ -27,8 +27,8 @@ Route::get('/campaigns', [CampaignController::class, 'index'])->middleware(\App\
 Route::prefix('v1')->group(function () {
     Route::controller(ApiCampaignController::class)->prefix('campaigns')->group(function() {
         Route::get('/', 'getList');
-        Route::get('/{campaign}', 'show');
-        Route::get('/{campaign}/transactions/create', 'createTransaction');
-        Route::post('/{campaign}/transaction', 'storeTransaction');
+        Route::get('/{slug}', 'getDetail');
+        Route::get('/{slug}/transactions/create', 'createTransaction');
+        Route::post('/{slug}/transaction', 'storeTransaction');
     });
 });

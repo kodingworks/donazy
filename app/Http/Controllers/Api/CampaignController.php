@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Campaign\CampaignListResource;
 use App\Http\Resources\CampaignResource;
 use App\Models\Campaign;
+use App\Services\CampaignService;
 use App\Services\PaginationService;
-use Request;
+use Illuminate\Http\Request;
 
 class CampaignController extends Controller
 {   
-
-    public function __construct(OrderServices $orderServices)
+    private $campaignService;
+    public function __construct(CampaignService $campaignService)
     {
-        $this->orderServices = $orderServices;
+        $this->campaignService = $campaignService;
     }
 
     public function index()
@@ -30,15 +32,30 @@ class CampaignController extends Controller
     public function getList(Request $request) {
         try{
 
-            $data = $this->campaignService->getList($request);
+            $data = $this->campaignService->getData($request);
 
-            
+            $campaigns = new CampaignListResource($data);
             
             return $campaigns;
 
         }catch (\Exception $e) {
             return response()->json([
                 'message' => 'Failed to get campaign list',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function getDetail() {
+        try{
+
+            $campaign = $this->campaignService->getDetail();
+
+            return new CampaignResource($campaign);
+
+        }catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to get campaign detail',
                 'error' => $e->getMessage()
             ], 500);
         }
