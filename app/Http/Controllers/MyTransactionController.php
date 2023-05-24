@@ -9,7 +9,7 @@ use Illuminate\View\View;
 
 class MyTransactionController extends Controller
 {
-    public function index(): View
+    public function index()
     {
         $paidTransactionTotal = Transaction::query()
             ->where('user_id', Auth::id())

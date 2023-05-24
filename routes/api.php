@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CampaignController;
+use App\Models\Campaign;
+use App\Services\PaginationService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/artisan', [\App\Http\Controllers\Api\ArtisanController::class, 'store']);
 Route::get('/campaigns', [\App\Http\Controllers\Api\CampaignController::class, 'index'])->middleware(\App\Http\Middleware\IsAjax::class);
+Route::prefix('v1')->group(function () {
+    Route::controller(CampaignController::class)->group(function() {
+        Route::get('/', 'index');
+        Route::get('/{campaign}', 'show');
+        Route::get('/{campaign}/transactions/create', 'createTransaction');
+        Route::post('/{campaign}/transaction', 'storeTransaction');
+    });
+});
