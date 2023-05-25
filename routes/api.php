@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\CampaignController;
+use App\Http\Controllers\Api\ArtisanController;
 use App\Http\Controllers\Api\CampaignController as ApiCampaignController;
+use App\Http\Controllers\Api\TransactionController as ApiTransactionController;
 use App\Models\Campaign;
 use App\Services\PaginationService;
 use Illuminate\Http\Request;
@@ -29,7 +31,9 @@ Route::prefix('v1')->group(function () {
         Route::get('/', 'getList');
         Route::get('/{slug}', 'getDetail');
         Route::get('/{slug}/donors', 'getDonors');
-        Route::get('/{slug}/transactions/create', 'createTransaction');
-        Route::post('/{slug}/transaction', 'storeTransaction');
+    });
+
+    Route::controller(ApiTransactionController::class)->prefix('transaction')->group(function() {
+        Route::get('/{slug}/transaction', 'createPayment');
     });
 });

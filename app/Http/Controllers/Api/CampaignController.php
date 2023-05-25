@@ -53,7 +53,7 @@ class CampaignController extends Controller
             $data = $this->campaignService->getDetail($slug);
 
             $campaign = new CampaignListResource($data);
-            return $campaign;
+            return $this->respond($campaign);
 
         }catch (\Exception $e) {
             return response()->json([

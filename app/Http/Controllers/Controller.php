@@ -35,6 +35,8 @@ class Controller extends BaseController
     
     public function respond($data)
     {
-        return response()->json($data);
+        return response()->json([
+            'data' => $data
+        ]);
     }
 }
