@@ -28,6 +28,7 @@ Route::prefix('v1')->group(function () {
     Route::controller(ApiCampaignController::class)->prefix('campaigns')->group(function() {
         Route::get('/', 'getList');
         Route::get('/{slug}', 'getDetail');
+        Route::get('/{slug}/donors', 'getDonors');
         Route::get('/{slug}/transactions/create', 'createTransaction');
         Route::post('/{slug}/transaction', 'storeTransaction');
     });

@@ -3,6 +3,7 @@
 namespace  App\Services;
 
 use App\Models\Campaign;
+use App\Models\Transaction;
 
 class CampaignService
 {
@@ -10,19 +11,38 @@ class CampaignService
 
     $query = Campaign::query()->published();
 
-    $campaigns = PaginationService::make($query)
+    $query = PaginationService::make($query)
             ->setSearchables([
                 'name',
             ])
             ->build();
       
 
-    return $campaigns;
+    return $query;
   } 
 
-  public function getDetail() {
-    $campaign = Campaign::query()->published()->first();
+  public function getDetail($slug) {
+    $query = Campaign::query()
+    ->where('slug', $slug)
+    ->published()
+    ->firstOrFail();
 
-    return $campaign;
+    return $query;
+  }
+
+  public function getDonors($slug) {
+    $query = Campaign::query()
+    ->where('slug', $slug)
+    ->published()
+    ->firstOrFail();
+
+    $transactions = $query
+    ->transactions()
+    ->where('status', Transaction::STATUS_PAID)
+    ->latest('updated_at')
+    ->limit(9)
+    ->get();
+
+    return $transactions;
   }
 }

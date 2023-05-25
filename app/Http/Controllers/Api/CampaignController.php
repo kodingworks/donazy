@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Campaign\CampaignListResource;
 use App\Http\Resources\CampaignResource;
+use App\Http\Resources\Donor\DonorListResource;
 use App\Models\Campaign;
 use App\Services\CampaignService;
 use App\Services\PaginationService;
@@ -46,12 +47,13 @@ class CampaignController extends Controller
         }
     }
 
-    public function getDetail() {
+    public function getDetail(string $slug) {
         try{
 
-            $campaign = $this->campaignService->getDetail();
+            $data = $this->campaignService->getDetail($slug);
 
-            return new CampaignResource($campaign);
+            $campaign = new CampaignListResource($data);
+            return $campaign;
 
         }catch (\Exception $e) {
             return response()->json([
@@ -59,5 +61,22 @@ class CampaignController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
+    }
+
+    public function getDonors(string $slug) {
+        try{
+
+            $data = $this->campaignService->getDonors($slug);
+
+            $campaign = new DonorListResource($data);
+            return $campaign;
+
+        }catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Failed to get campaign donor',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+
     }
 }
