@@ -45,7 +45,16 @@ class TransactionController extends Controller
         ];
 
         $payment = \Xendit\Invoice::create($params);
-        return $this->respond($payment);
+        $data = [
+            "invoice_url" => $payment["invoice_url"],
+            "expiry_date" => $payment["expiry_date"],
+            "status" => $payment["status"],
+            "amount" => $payment["amount"],
+            "description" => $payment["description"],
+            "external_id" => $payment["external_id"],
+        ];       
+        
+        return $this->respond($data);
     }catch (\Exception $e) {
         return response()->json($e->getMessage());
     }
