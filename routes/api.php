@@ -34,6 +34,7 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::controller(ApiTransactionController::class)->prefix('transaction')->group(function() {
-        Route::post('/transaction/{slug}', 'createPayment');
+        Route::post('/{slug}/create-transaction', 'createPayment');
+        Route::post('/callback', 'callback');
     });
 });
