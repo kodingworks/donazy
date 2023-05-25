@@ -13,7 +13,7 @@ class CreateTransactionRequest extends ApiBaseRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,9 +24,62 @@ class CreateTransactionRequest extends ApiBaseRequest
     public function rules()
     {
         return [
-            'user_email' => 'required|email',
-            'amount' => 'required|numeric',
-            'campaign_id' => 'required|exists:campaigns,id',
+            'amount' => [
+                'required',
+                'numeric',
+                'min:10000',
+            ],
+            'name' => [
+                'required',
+                'string',
+            ],
+            'email' => [
+                'string',
+            ],
+            'phone' => [
+                'nullable',
+                'string',
+            ],
+            'anonymous' => [
+                'nullable',
+                'boolean',
+            ],
+            'message' => [
+                'nullable',
+                'string',
+            ],
+            'meta' => [
+                'nullable',
+                'json',
+            ],
         ];
+        
+    }
+
+    public function validation()
+    {
+        $validatedData = [
+            'user_email' => $this->email,
+            'user_name' => $this->name,
+            'amount' => $this->amount,
+        ];
+
+        if ($this->filled('phone')) {
+            $validatedData['user_phone'] = $this->phone;
+        }
+
+        if ($this->filled('anonymous')) {
+            $validatedData['anonymous'] = $this->anonymous;
+        }
+
+        if ($this->filled('message')) {
+            $validatedData['message'] = $this->message;
+        }
+
+        if ($this->filled('meta')) {
+            $validatedData['meta'] = $this->meta;
+        }
+
+        return $validatedData;
     }
 }

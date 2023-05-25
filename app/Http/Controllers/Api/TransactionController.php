@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\CreateTransactionRequest;
 use App\Http\Requests\CampaignTransactionStoreRequest;
 use App\Models\Campaign;
 use Carbon\Carbon;
@@ -17,7 +18,7 @@ class TransactionController extends Controller
         Xendit::setApiKey(env('XENDIT_SECRET_KEY'));
     }
 
-    public function createPayment(string $slug, Request $request): JsonResponse {
+    public function createPayment(string $slug, CreateTransactionRequest $request) {
     try {
         $campaign = Campaign::query()
         ->where('slug', $slug)
@@ -31,17 +32,16 @@ class TransactionController extends Controller
 
         $transactionCodes = [];
 
- 
 
         $transactionCodes[] = $transaction->code;
 
 
         $params = [
             "external_id" => $transaction->code,
+            "amount" => $transaction->amount,
             "payer_email" => $transaction->user_email,
             "description" => $campaign->name,
-            "amount" => $transaction->amount,
-            "invoice_duration" => Carbon::now()->addDay(1)->format('Y-m-d\TH:i:s\Z'),
+            "invoice_dutation" => Carbon::now()->addHour(1)->toIso8601String(),
         ];
 
         $payment = \Xendit\Invoice::create($params);
