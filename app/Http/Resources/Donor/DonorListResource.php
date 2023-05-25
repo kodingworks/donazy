@@ -21,7 +21,11 @@ class DonorListResource extends JsonResource
         $data = parent::toArray($request);
         foreach ($data as &$item) {
             if (isset($item['anonymous']) && $item['anonymous'] == 1) {
-                $item['user_name'] = 'hamba allah';
+                $item['donor_name'] = 'secret';
+                unset($item['user_name']);
+            } else {
+                $item['donor_name'] = $item['user_name'];
+                unset($item['user_name']);
             }
         }    
     
