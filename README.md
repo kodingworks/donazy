@@ -1,11 +1,9 @@
 ### Saling Membantu Crowdfunding Application
 
-## API Features
+## Features
 
--   Get Campaigns List
--   Get Campaign Detail
--   Get Donors List
--   Donate to Campaign
+-   Unique Code for Automatic Payment Confirmation Using Mooota
+-   Support Xendit Payment Gateway
 
 ## API Documentation
 
