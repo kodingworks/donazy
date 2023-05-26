@@ -1,12 +1,13 @@
----
+# Donazy - Open Source Donation / Fundraising Platform (EN)
 
 ![Dashboard image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/da114ba4-ef1d-408f-8f21-c831d68cfb78)
 ![Donation Page Image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/2633495c-2469-43a0-990a-812dbdf81ab1)
 
 ## Features
 
--   Connect to Xendit
--   Email notification
+-   Create campaign
+-   Campaign Target 
+-   Unique Digit
 
 ## Demo
 
@@ -16,7 +17,7 @@ https://demo.donazy.org
 Email: superadmin@example.com  
 Password: secret
 
-## Tech
+## Tech Stack
 
 -   Laravel 9 - PHP Framework for building the admin dashboard and mobile api.
 -   Blade - The simple, yet powerful templating engine that is included with Laravel
@@ -42,4 +43,25 @@ When you contribute code, the best thing to do is imitate the existing pattern d
 
 ## License
 
-/donazy is released under the [MIT](./LICENSE) license.
+Donazy is released under the [MIT](./LICENSE) license.
+
+================================================================
+
+# Donazy - Aplikasi Manajemen Donasi Open Source (ID)
+
+## Fitur
+
+## Demo
+
+## Tech Stack
+
+## Dokumentasi
+
+## Dokumentasi API
+
+## Komunitas dan Grup Diskusi
+
+## Kontribusi
+
+## Lisensi
+Donazy dirilis dengan lisensi [MIT](./LICENSE)
