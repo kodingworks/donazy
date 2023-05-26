@@ -44,17 +44,17 @@ class TransactionController extends Controller
                 "amount" => $transaction->amount,
                 "payer_email" => $transaction->user_email,
                 "description" => $campaign->name,
-                "invoice_duration" => 60,
+                "invoice_duration" => 3600,
             ];
 
             $payment = \Xendit\Invoice::create($params);
             $data = [
-                "invoice_url" => $payment["invoice_url"],
+                "payment_url" => $payment["invoice_url"],
                 "expiry_date" => $payment["expiry_date"],
                 "status" => $payment["status"],
                 "amount" => $payment["amount"],
                 "description" => $payment["description"],
-                "external_id" => $payment["external_id"],
+                "invoice_id" => $payment["external_id"],
             ];       
             
             return $this->respond($data);
