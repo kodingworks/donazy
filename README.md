@@ -3,7 +3,6 @@
 ![Dashboard image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/da114ba4-ef1d-408f-8f21-c831d68cfb78)
 ![Donation Page Image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/2633495c-2469-43a0-990a-812dbdf81ab1)
 
-
 ## Features
 
 -   Connect to Xendit
@@ -12,7 +11,7 @@
 ## Demo
 
 You could try the demo at  
-https://donasi.insanpeduli.org
+https://demo.donazy.org
 
 Email: superadmin@example.com  
 Password: secret
@@ -25,6 +24,11 @@ Password: secret
 ## Documentation
 
 If you want to know how to install this app, please refer to this [Installation Guide](./installation.md)
+
+## API Documentation
+
+Check our API documentation
+https://documenter.getpostman.com/view/20104631/2s93m4WMfM
 
 ## Community & Group Discussion
 
