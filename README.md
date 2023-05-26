@@ -9,7 +9,7 @@
 
 ## API Documentation
 
-If you want to know how to use the API, you can see example here (https://documenter.getpostman.com/view/20104631/2s93m4WMfM)
+If you want to know how to use the API, you can see the example here (https://documenter.getpostman.com/view/20104631/2s93m4WMfM)
 
 ## Contributing
 
