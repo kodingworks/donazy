@@ -83,4 +83,17 @@ class TransactionController extends Controller
             ]);
         }
     }
+
+    public function getTransaction($invoice_id) {
+        try{
+            $transaction = TransactionApi::where('code', $invoice_id)->first();
+            return $this->respond([
+                'message' => "success get transaction status",
+                'status' => $transaction->status,
+            ]);
+           
+        } catch (\Exception $e) {
+            return response()->json($e->getMessage());
+        }
+    }
 }
