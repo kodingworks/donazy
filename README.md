@@ -1,7 +1,5 @@
 ---
 
-# <<<<<<< HEAD
-
 ![Dashboard image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/da114ba4-ef1d-408f-8f21-c831d68cfb78)
 ![Donation Page Image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/2633495c-2469-43a0-990a-812dbdf81ab1)
 
@@ -9,8 +7,6 @@
 
 -   Connect to Xendit
 -   Email notification
-
-> > > > > > > 91f4421cffaf710d434f4ff1343b3cf7b8e118cd
 
 ## Demo
 
