@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\CampaignController;
+use App\Http\Controllers\Api\ArtisanController;
+use App\Http\Controllers\Api\CampaignController as ApiCampaignController;
+use App\Http\Controllers\Api\TransactionController as ApiTransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +22,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/artisan', [\App\Http\Controllers\Api\ArtisanController::class, 'store']);
-Route::get('/campaigns', [\App\Http\Controllers\Api\CampaignController::class, 'index'])->middleware(\App\Http\Middleware\IsAjax::class);
+Route::post('/artisan', [ArtisanController::class, 'store']);
+Route::get('/campaigns', [CampaignController::class, 'index'])->middleware(\App\Http\Middleware\IsAjax::class);
+Route::prefix('v1')->group(function () {
+    Route::controller(ApiCampaignController::class)->prefix('campaigns')->group(function() {
+        Route::get('/', 'getList');
+        Route::get('/{slug}', 'getDetail');
+        Route::get('/{slug}/donors', 'getDonors');
+    });
+
+    Route::controller(ApiTransactionController::class)->prefix('transaction')->group(function() {
+        Route::post('/{slug}/create-transaction', 'createPayment');
+        Route::post('/callback', 'callback');
+    });
+});

@@ -87,6 +87,11 @@ class Campaign extends Model implements HasMedia
         return $this->hasMany(Transaction::class);
     }
 
+    public function transactionsApi(): HasMany
+    {
+        return $this->hasMany(TransactionApi::class);
+    }
+
     public function canClose(): bool
     {
         return !empty($this->closed_at);
