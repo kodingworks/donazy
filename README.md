@@ -6,13 +6,8 @@
 
 ## Features
 
--   Attendance System
--   Employee Management
--   Resign Management
--   Leave Management
--   Notice board
--   Multi Approval System
--   Payroll
+-   Connect to Xendit
+-   Email notification
 
 ## Demo
 
