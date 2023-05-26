@@ -8,6 +8,7 @@ use App\Http\Requests\Api\CreateTransactionRequest;
 use App\Http\Requests\CampaignTransactionStoreRequest;
 use App\Models\Campaign;
 use App\Models\Transaction;
+use App\Models\TransactionApi;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class TransactionController extends Controller
             ->firstOrFail();
 
             $transaction = $campaign
-            ->transactions()
+            ->transactionsApi()
             ->create($request->validation());
 
             $transactionCodes = [];
@@ -43,7 +44,7 @@ class TransactionController extends Controller
                 "amount" => $transaction->amount,
                 "payer_email" => $transaction->user_email,
                 "description" => $campaign->name,
-                "invoice_dutation" => Carbon::now()->addHour(1)->toIso8601String(),
+                "invoice_duration" => 60,
             ];
 
             $payment = \Xendit\Invoice::create($params);
@@ -66,7 +67,16 @@ class TransactionController extends Controller
     public function callback(TransactionStatusUpdateRequest $request) {
         try{
             $data = $request->all();
-            $transaction = Transaction::where('code', $data['external_id'])->first();
+            $transaction = TransactionApi::where('code', $data['external_id'])->first();
+            if($data['status'] == 'PAID') {
+                $transaction->update([
+                    'status' => TransactionApi::STATUS_PAID,
+                ]);
+            }else if($data['status'] == 'EXPIRED') {
+                $transaction->update([
+                    'status' => TransactionApi::STATUS_EXPIRED,
+                ]);
+            }
             $transaction->update($request->validated());
             return response()->json($data);
         }catch (\Exception $e) {
