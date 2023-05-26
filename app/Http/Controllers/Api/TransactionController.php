@@ -78,7 +78,10 @@ class TransactionController extends Controller
                 ]);
             }
             $transaction->update($request->validated());
-            return response()->json($data);
+            return response()->json([
+                'message' => "success",
+               'status' => $transaction->status,
+            ]);
         }catch (\Exception $e) {
             return response()->json([
                 'message' => "external_id not found",
