@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Jobs\UpdateExpiredTransaction;
 use App\Services\UniqueCodeGeneratorService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -50,10 +49,6 @@ class TransactionApi extends Model
                 $transaction->status = self::STATUS_WAITING;
             }
         });
-
-        // static::created(function (self $transaction) {
-        //     UpdateExpiredTransaction::dispatch($transaction)->delay(self::EXPIRED_TIME_IN_SECONDS);
-        // });
 
         static::updated(function (self $transaction) {
             if ($transaction->wasChanged('status')) {

@@ -4,8 +4,6 @@ use App\Http\Controllers\Admin\CampaignController;
 use App\Http\Controllers\Api\ArtisanController;
 use App\Http\Controllers\Api\CampaignController as ApiCampaignController;
 use App\Http\Controllers\Api\TransactionController as ApiTransactionController;
-use App\Models\Campaign;
-use App\Services\PaginationService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

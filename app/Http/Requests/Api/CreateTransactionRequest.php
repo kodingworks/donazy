@@ -34,7 +34,9 @@ class CreateTransactionRequest extends ApiBaseRequest
                 'string',
             ],
             'email' => [
+                'required',
                 'string',
+                'email',
             ],
             'phone' => [
                 'nullable',
