@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentMethodController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,10 @@ Route::group([
 });
 
 Route::get('/transactions/{code}', [\App\Http\Controllers\TransactionController::class, 'show'])->name('transactions.show');
+
+Route::controller(PaymentMethodController::class)->group(function () {
+    Route::get('/payment-methods', 'getPaymentMethod')->name('payment-methods.index');
+});
 
 Route::middleware(['auth'])
     ->group(function () {
