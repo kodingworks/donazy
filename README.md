@@ -1,17 +1,16 @@
 ---
 
-![image](https://drive.google.com/file/d/17Mf3rM3eROBjyZV9yceWFiYCFOtUL7N8/view?usp=sharing)
-![image](https://drive.google.com/file/d/1Haxg4y6cOSEP3R3cJS9bV8xc8cG6LSAL/view?usp=sharing)
+# <<<<<<< HEAD
+
+![Dashboard image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/da114ba4-ef1d-408f-8f21-c831d68cfb78)
+![Donation Page Image](https://github.com/AmdaaRaijen/berbagi/assets/95063290/2633495c-2469-43a0-990a-812dbdf81ab1)
 
 ## Features
 
--   Attendance System
--   Employee Management
--   Resign Management
--   Leave Management
--   Notice board
--   Multi Approval System
--   Payroll
+-   Connect to Xendit
+-   Email notification
+
+> > > > > > > 91f4421cffaf710d434f4ff1343b3cf7b8e118cd
 
 ## Demo
 
