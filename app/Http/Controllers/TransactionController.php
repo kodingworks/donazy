@@ -7,6 +7,7 @@ use App\Services\PaymentMethodService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\View\View;
+use Request;
 
 class TransactionController extends Controller
 {
@@ -18,8 +19,9 @@ class TransactionController extends Controller
         $this->paymentMethodService = $paymentMethodService;
     }
 
-    public function show(string $code): View
+    public function show(string $code, Request $request): View
     {
+        dd($request);
         if (Auth::check()) {
             /** @var Transaction $transaction */
             $transaction = Transaction::with(['campaign'])

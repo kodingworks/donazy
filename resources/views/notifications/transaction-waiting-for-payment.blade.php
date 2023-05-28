@@ -5,12 +5,14 @@ Bismillah
 
 Segera salurkan donasi pilihan anda yaitu **{{ $transaction->campaign->name }}** dengan cara transfer Donasi Anda ke:
 
+@foreach($paymentMethod as $paymentMethod)
 <h1 style="text-align: center; margin-bottom: 0;">{{ $paymentMethod->name }}</h1>
 <h1 style="text-align: center; margin-bottom: 0;">{{ $paymentMethod->account_number }}</h1>
 <h1 style="text-align: center; font-weight: normal;">{{ $paymentMethod->account_holder_name }}</h1>
 
 <h1 style="text-align: center; margin-bottom: 0; font-weight: normal;">Total Donasi Anda</h1>
 <h1 style="text-align: center;">@idr($transaction->total)</h1>
+@endforeach
 
 **PENTING!**
 

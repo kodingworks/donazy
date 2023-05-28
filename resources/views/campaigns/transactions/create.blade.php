@@ -58,11 +58,11 @@
                     <div class="flex flex-col gap-5">
                         <div class="inline-flex space-x-2">
                             <select
-                                name="status"
+                                name="payment_method"
                                 class="text-sm rounded font-semibold focus:border-primary focus:shadow-outline-primary"
                             >
                                 @foreach ($paymentMethod as $paymentMethod)
-                                    <option class="font-semibold" value="{{ $paymentMethod->name }}" @if($paymentMethod == $paymentMethod->name) selected @endif>{{ $paymentMethod->name }}</option>
+                                    <option class="font-semibold" value="{{ $paymentMethod->id }}" @if($paymentMethod->id == $paymentMethod->id) selected @endif>{{ $paymentMethod->name }}</option>
                                 @endforeach
                             </select>
                         </div>

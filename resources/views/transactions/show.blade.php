@@ -6,16 +6,16 @@
             <x-bg-main class="p-4">
                 @switch($transaction->status)
                 @case(\App\Models\Transaction::STATUS_WAITING)
-                        <x-transactions.waiting :transaction="$transaction" :paymentMethod="$paymentMethod" />
+                        <x-transactions.waiting :transaction="$transaction" :paymentMethod="$payment_method" />
                         @break
                     @case(\App\Models\Transaction::STATUS_PAID)
-                        <x-transactions.paid :transaction="$transaction" :paymentMethod="$paymentMethod" />
+                        <x-transactions.paid :transaction="$transaction" :paymentMethod="$payment_method" />
                         @break
                     @case(\App\Models\Transaction::STATUS_EXPIRED)
-                        <x-transactions.expired :transaction="$transaction" :paymentMethod="$paymentMethod" />
+                        <x-transactions.expired :transaction="$transaction" :paymentMethod="$payment_method" />
                         @break
                     @case(\App\Models\Transaction::STATUS_CANCELED)
-                        <x-transactions.canceled :transaction="$transaction" :paymentMethod="$paymentMethod" />
+                        <x-transactions.canceled :transaction="$transaction" :paymentMethod="$payment_method" />
                         @break
                 @endswitch
             </x-bg-main>
