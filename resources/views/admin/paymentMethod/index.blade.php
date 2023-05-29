@@ -1,5 +1,5 @@
 <x-admin::app>
-    <x-admin::page-title value="Pengguna" />
+    <x-admin::page-title value="Metode Pembayaran" />
 
     <x-admin::success-alert />
 
@@ -25,7 +25,7 @@
                         <x-admin::sortable value="Nama Bank" name="name" />
                     </x-admin::row-header>
                     <x-admin::row-header>
-                        <x-admin::sortable value="Email" name="account_holder_name" />
+                        <x-admin::sortable value="Nama Pemegang" name="account_holder_name" />
                     </x-admin::row-header>
                     <x-admin::row-header>
                         <x-admin::sortable value="Nomor Rekening" name="account_number" />
@@ -46,7 +46,6 @@
                         <x-admin::row>{{ $paymentMethod->created_at }}</x-admin::row>
                         <x-admin::row>
                             <div class="flex items-center text-sm">
-                                <x-admin::row-show-action :href="route('admin::paymentMethod.show', $paymentMethod)" />
                                 <x-admin::row-edit-action :href="route('admin::paymentMethod.edit', $paymentMethod)" />
                                 <x-admin::row-delete-action :href="route('admin::paymentMethod.destroy', $paymentMethod)" />
                             </div>

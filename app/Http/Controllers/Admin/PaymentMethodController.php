@@ -39,4 +39,28 @@ class PaymentMethodController extends Controller
             ->route('admin::paymentMethod.index')
             ->with('success', __('crud.created', ['name' => 'paymentMethod']));
     }
+
+    public function edit(PaymentMethod $paymentMethod)
+    {
+        return view('admin::paymentMethod.edit', ['paymentMethod' => $paymentMethod]);
+    }
+
+
+    public function update(PaymentMethodRequest $request, PaymentMethod $paymentMethod)
+    {
+        $paymentMethod->update($request->validated());
+
+        return redirect()
+            ->route('admin::paymentMethod.edit', $paymentMethod)
+            ->with('success', __('crud.updated', ['name' => 'Metode Pembaaran']));
+    }
+
+    public function destroy(PaymentMethod $paymentMethod)
+    {
+        $paymentMethod->delete();
+
+        return redirect()
+            ->route('admin::paymentMethod.index')
+            ->with('success', __('crud.deleted', ['name' => 'Metode Pembayaran']));
+    }
 }

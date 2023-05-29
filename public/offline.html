@@ -1,101 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="csrf-token"
+            content="9bTxRmQHiiDh5Nd9RqBP8skKsrfvxXikCG4tIeye"
+        />
+        <meta
+            name="vapid-key"
+            content="BDGhA75herRj7D8vnuKvCmYWv7R81aTMqmozOeBAuuymRf73QXlV-tWRitHBxxpFr1oeeqpRl4PHRT0Hjnc-PWE"
+        />
+        <meta name="subscription" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="csrf-token" content="9bTxRmQHiiDh5Nd9RqBP8skKsrfvxXikCG4tIeye" />
-    <meta name="vapid-key" content="BDGhA75herRj7D8vnuKvCmYWv7R81aTMqmozOeBAuuymRf73QXlV-tWRitHBxxpFr1oeeqpRl4PHRT0Hjnc-PWE" />
-    <meta name="subscription" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
+        <title>Solidaritas Insan Peduli</title>
 
-    <title>Solidaritas Insan Peduli</title>
+        <!-- Styles -->
+        <link rel="stylesheet" href="/css/app.css" />
+    </head>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="/css/app.css" />
-</head>
+    <body class="font-sans antialiased bg-gray-50">
+        <header class="fixed top-0 inset-x-0 z-10">
+            <div class="shadow-sm bg-white">
+                <div class="max-w-screen-xs mx-auto">
+                    <form action="/campaigns" method="GET">
+                        <div class="flex items-center space-x-2 p-2">
+                            <img
+                                onclick="location.href = 'https://github.com/kodingworks/donazy'"
+                                src="/images/logo.png"
+                                alt="Solidaritas Insan Peduli"
+                                class="h-12 cursor-pointer"
+                            />
+                            <label
+                                class="block w-full relative text-gray-300 focus-within:text-primary"
+                            >
+                                <input
+                                    type="search"
+                                    name="search"
+                                    placeholder="Cari program"
+                                    class="w-full rounded-full pl-4 pr-8 bg-gray-50 border-gray-300 focus:border-primary focus:ring-primary"
+                                />
+                                <svg
+                                    class="absolute right-0 top-0 h-5 w-5 mt-3 mr-3"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
 
-<body class="font-sans antialiased bg-gray-50">
-    <header class="fixed top-0 inset-x-0 z-10">
-        <div class="shadow-sm bg-white">
-            <div class="max-w-screen-xs mx-auto">
-                <form action="/campaigns" method="GET">
-                    <div class="flex items-center space-x-2 p-2">
-                        <img onclick="location.href = 'https://insanpeduli.org'" src="/images/logo.png" alt="Solidaritas Insan Peduli" class="h-12 cursor-pointer" />
-                        <label class="block w-full relative text-gray-300 focus-within:text-primary">
-                            <input type="search" name="search" placeholder="Cari program" class="w-full rounded-full pl-4 pr-8 bg-gray-50 border-gray-300 focus:border-primary focus:ring-primary" />
-                            <svg class="absolute right-0 top-0 h-5 w-5 mt-3 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </label>
+        <div class="max-w-screen-xs mx-auto">
+            <main class="py-20">
+                <div class="p-4 flex items-center flex-col">
+                    <div class="text-gray-400 mb-4">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-52 w-52"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414"
+                            />
+                        </svg>
                     </div>
-                </form>
-            </div>
-        </div>
-    </header>
-
-    <div class="max-w-screen-xs mx-auto">
-        <main class="py-20">
-            <div class="p-4 flex items-center flex-col">
-                <div class="text-gray-400 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-52 w-52" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" />
-                    </svg>
+                    <div class="text-lg">Anda sedang offline</div>
                 </div>
-                <div class="text-lg">Anda sedang offline</div>
-            </div>
-        </main>
-    </div>
+            </main>
+        </div>
 
-    <nav class="fixed bottom-0 inset-x-0 z-10 border-t">
-        <div class="shadow-sm bg-white">
-            <div class="max-w-screen-xs mx-auto">
-                <div class="flex justify-between items-center">
-                    <a href="/" class="text-primary active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                        </svg>
-                        <span class="whitespace-nowrap text-xs mt-1">Beranda</span>
-                    </a>
-                    <a href="/campaigns" class="text-gray-400 active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                        </svg>
-                        <span class="whitespace-nowrap text-xs mt-1">Program</span>
-                    </a>
-                    <a href="/my-transactions" class="text-gray-400 active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                        </svg>
-                        <span class="whitespace-nowrap text-xs mt-1">Donasi Saya</span>
-                    </a>
-                    <a href="/profile" class="text-gray-400 active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                        <span class="whitespace-nowrap text-xs mt-1">Akun</span>
-                    </a>
+        <nav class="fixed bottom-0 inset-x-0 z-10 border-t">
+            <div class="shadow-sm bg-white">
+                <div class="max-w-screen-xs mx-auto">
+                    <div class="flex justify-between items-center">
+                        <a
+                            href="/"
+                            class="text-primary active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                                />
+                            </svg>
+                            <span class="whitespace-nowrap text-xs mt-1"
+                                >Beranda</span
+                            >
+                        </a>
+                        <a
+                            href="/campaigns"
+                            class="text-gray-400 active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            <span class="whitespace-nowrap text-xs mt-1"
+                                >Program</span
+                            >
+                        </a>
+                        <a
+                            href="/my-transactions"
+                            class="text-gray-400 active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                                />
+                            </svg>
+                            <span class="whitespace-nowrap text-xs mt-1"
+                                >Donasi Saya</span
+                            >
+                        </a>
+                        <a
+                            href="/profile"
+                            class="text-gray-400 active:text-primary hover:text-primary text-center flex flex-col flex-1 items-center px-2 py-3"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                            </svg>
+                            <span class="whitespace-nowrap text-xs mt-1"
+                                >Akun</span
+                            >
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-</body>
-
+        </nav>
+    </body>
 </html>
