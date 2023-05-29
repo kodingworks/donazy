@@ -62,7 +62,7 @@
                                 class="text-sm rounded font-semibold focus:border-primary focus:shadow-outline-primary"
                             >
                                 @foreach ($paymentMethod as $paymentMethod)
-                                    <option class="font-semibold" value="{{ $paymentMethod->id }}" @if($paymentMethod->id == $paymentMethod->id) selected @endif>{{ $paymentMethod->name }}</option>
+                                    <option class="font-semibold" value="{{ $paymentMethod->id }}" @if($paymentMethod->id == $paymentMethod->id) selected @endif>{{ $paymentMethod->name }}, {{ $paymentMethod->account_holder_name }}</option>
                                 @endforeach
                             </select>
                         </div>

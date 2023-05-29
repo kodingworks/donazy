@@ -29,11 +29,12 @@ class TransactionController extends Controller
                 ->where('user_id', Auth::id())
                 ->firstOrFail();
 
-            $paymentMethod = $this->paymentMethodService->getPaymentMethod();
+           
+            $paymentMethod = PaymentMethod::query()->where('id', $transaction->payment_method_id)->firstOrFail();
 
             return view('transactions.show', [
                 'transaction' => $transaction,
-                'paymentMethod' => $paymentethod,
+                'paymentMethod' => $paymentMethod,
             ]);
         }
 
