@@ -21,7 +21,6 @@ class TransactionController extends Controller
 
     public function show(string $code, Request $request): View
     {
-        dd($request);
         if (Auth::check()) {
             /** @var Transaction $transaction */
             $transaction = Transaction::with(['campaign'])
