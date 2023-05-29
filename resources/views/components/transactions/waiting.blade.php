@@ -55,7 +55,6 @@
         class="p-4 mb-4 rounded border border-gray-200 flex flex-col items-center"
     >
         <p class="text-sm">Metode Pembayaran</p>
-        @foreach ($paymentMethod as $paymentMethod)
         <p>{{ $paymentMethod->name }}</p>
         <p class="text-sm">{{ $paymentMethod->account_holder_name }}</p>
         <p class="font-semibold text-lg">{{ $paymentMethod->account_number }}</p>
@@ -67,7 +66,6 @@
         <span x-show="!showFeedback">Salin</span>
         <span x-show="showFeedback">Tersalin<span>
         </button>
-        @endforeach
     </div>
     <script>
         function PaymentMethod() {

@@ -55,7 +55,6 @@ class CampaignTransactionController extends Controller
 
     public function store(string $slug, CampaignTransactionStoreRequest $request): RedirectResponse
     {
-
         /** @var Campaign $campaign */
         $campaign = Campaign::query()
         ->where('slug', $slug)
@@ -63,8 +62,9 @@ class CampaignTransactionController extends Controller
         ->available()
         ->firstOrFail();
         
-        $paymentMethod = PaymentMethod::query()->where('id', $request->payment_method)->firstOrFail();
+        $paymentMethod = PaymentMethod::query()->where('id', intval($request->payment_method_id))->firstOrFail();
 
+        $paymentMethod = PaymentMethod::query()->where('id', intval($request->payment_method_id))->get();
 
         /** @var Transaction $transaction */
         $transaction = $campaign

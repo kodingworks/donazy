@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PaymentMethod;
 use App\Models\Transaction;
 use App\Services\PaymentMethodService;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +33,7 @@ class TransactionController extends Controller
 
             return view('transactions.show', [
                 'transaction' => $transaction,
-                'paymentMethod' => $paymentMethod,
+                'paymentMethod' => $paymentethod,
             ]);
         }
 
@@ -51,7 +52,8 @@ class TransactionController extends Controller
 
         abort_if(!in_array($transaction->code, $transactionCodes), 404);
 
-        $paymentMethod = $this->paymentMethodService->getPaymentMethod();
+        $paymentMethod = PaymentMethod::query()->where('id', $transaction->payment_method_id)->firstOrFail();
+
 
         return view('transactions.show', [
             'transaction' => $transaction,

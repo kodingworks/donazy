@@ -18,7 +18,7 @@
                 x-data="FormComponent({
                     amount: '{{ old('amount') }}' ?? null,
                     name: '{{ old('name', $user->name ?? null) }}' ?? null,
-                    payment_method: '{{ old('payment_method') }}' ?? null,
+                    payment_method_id: '{{ old('payment_method') }}' ?? null,
                     email: '{{ old('email', $user->email ?? null) }}' ?? null,
                     phone: '{{ old('phone', $user->phone ?? null) }}' ?? null,
                     message: '{{ old('name', $user->message ?? null) }}' ?? null,
@@ -58,7 +58,7 @@
                     <div class="flex flex-col gap-5">
                         <div class="inline-flex space-x-2">
                             <select
-                                name="payment_method"
+                                name="payment_method_id"
                                 class="text-sm rounded font-semibold focus:border-primary focus:shadow-outline-primary"
                             >
                                 @foreach ($paymentMethod as $paymentMethod)
