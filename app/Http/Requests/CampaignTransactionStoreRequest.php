@@ -47,6 +47,10 @@ class CampaignTransactionStoreRequest extends FormRequest
                 'nullable',
                 'boolean',
             ],
+            'payment_method_id' => [
+                'required',
+                'exists:payment_methods,id',
+            ],
             'message' => [
                 'nullable',
                 'string',
@@ -76,6 +80,10 @@ class CampaignTransactionStoreRequest extends FormRequest
 
         if ($this->filled('message')) {
             $validatedData['message'] = $this->message;
+        }
+
+        if ($this->filled('payment_method_id')) {
+            $validatedData['payment_method_id'] = $this->payment_method_id;
         }
 
         if ($this->filled('meta')) {

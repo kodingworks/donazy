@@ -44,6 +44,7 @@ Route::group([
             });
             Route::resource('users', Admin\UserController::class);
             Route::resource('campaigns', Admin\CampaignController::class);
+            Route::resource('paymentMethod', Admin\PaymentMethodController::class);
             Route::resource('sliders', Admin\SliderController::class);
             Route::resource('banners', Admin\BannerController::class);
         });

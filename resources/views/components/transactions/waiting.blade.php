@@ -55,20 +55,16 @@
         class="p-4 mb-4 rounded border border-gray-200 flex flex-col items-center"
     >
         <p class="text-sm">Metode Pembayaran</p>
-        <img
-            src="{{ $paymentMethod->icon }}"
-            alt="{{ $paymentMethod->name }}"
-            class="w-1/2 mb-4"
-        />
+        <p>{{ $paymentMethod->name }}</p>
         <p class="text-sm">{{ $paymentMethod->account_holder_name }}</p>
         <p class="font-semibold text-lg">{{ $paymentMethod->account_number }}</p>
         <button
-            type="button"
-            x-on:click="copyToClipboard"
-            class="text-primary text-sm focus:outline-none"
+        type="button"
+        x-on:click="copyToClipboard"
+        class="text-primary text-sm focus:outline-none"
         >
-            <span x-show="!showFeedback">Salin</span>
-            <span x-show="showFeedback">Tersalin<span>
+        <span x-show="!showFeedback">Salin</span>
+        <span x-show="showFeedback">Tersalin<span>
         </button>
     </div>
     <script>

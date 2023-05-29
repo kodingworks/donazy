@@ -84,6 +84,12 @@ class Transaction extends Model
         return $this->belongsTo(Campaign::class);
     }
 
+    public function paymentMethod(): BelongsTo
+    
+    {
+        return $this->belongsTo(PaymentMethod::class);
+    }
+
     public function isAnonymous(): bool
     {
         return (bool) $this->anonymous;

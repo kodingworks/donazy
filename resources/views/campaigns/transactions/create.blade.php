@@ -18,6 +18,7 @@
                 x-data="FormComponent({
                     amount: '{{ old('amount') }}' ?? null,
                     name: '{{ old('name', $user->name ?? null) }}' ?? null,
+                    payment_method_id: '{{ old('payment_method') }}' ?? null,
                     email: '{{ old('email', $user->email ?? null) }}' ?? null,
                     phone: '{{ old('phone', $user->phone ?? null) }}' ?? null,
                     message: '{{ old('name', $user->message ?? null) }}' ?? null,
@@ -54,29 +55,23 @@
                     </div>
                     <div class="p-4 mb-4 rounded border border-gray-200 flex flex-col items-center">
                         <p>Metode Pembayaran</p>
-                        <img
-                            src="{{ $paymentMethod->icon }}"
-                            alt="{{ $paymentMethod->name }}"
-                            class="w-1/2 mb-4"
-                        />
-                        <p>{{ $paymentMethod->account_holder_name }}</p>
-                        <div class="flex items-center">
-                            <p class="font-semibold">{{ $paymentMethod->account_number }}</p>
-                            <button
-                                type="button"
-                                x-on:click="copyToClipboard('{{ $paymentMethod->account_number }}')"
-                                class="focus:outline-none focus:text-primary"
+                    <div class="flex flex-col gap-5">
+                        <div class="inline-flex space-x-2">
+                            <select
+                                name="payment_method_id"
+                                class="text-sm rounded font-semibold focus:border-primary focus:shadow-outline-primary"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                </svg>
-                            </button>
+                                @foreach ($paymentMethod as $paymentMethod)
+                                    <option class="font-semibold" value="{{ $paymentMethod->id }}" @if($paymentMethod->id == $paymentMethod->id) selected @endif>{{ $paymentMethod->name }}, {{ $paymentMethod->account_holder_name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <p
                             x-show="showCopiedFeedback"
                             class="text-xs text-primary"
                         >Tersalin</p>
                     </div>
+                </div>
                     @if (!$user)
                         <div class="mb-4">
                             <p class="text-center">
