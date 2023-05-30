@@ -6,15 +6,10 @@ use App\Models\PaymentMethod;
 
 class PaymentMethodService
 {
-    public function getPaymentMethod(): PaymentMethod
+    public function getPaymentMethod()
     {
-        return new PaymentMethod(
-            1,
-            'https://webform.bsm.co.id/asset/img/ico.gif',
-            'Bank Syariah Indonesia',
-            '7562626004',
-            'Yayasan Cahaya Sunnah SIP',
-            'Bank Transfer'
-        );
+        $query = PaymentMethod::get();
+        
+        return $query;
     }
 }

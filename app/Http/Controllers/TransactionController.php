@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PaymentMethod;
 use App\Models\Transaction;
 use App\Services\PaymentMethodService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\View\View;
+use Request;
 
 class TransactionController extends Controller
 {
@@ -18,7 +20,7 @@ class TransactionController extends Controller
         $this->paymentMethodService = $paymentMethodService;
     }
 
-    public function show(string $code): View
+    public function show(string $code, Request $request): View
     {
         if (Auth::check()) {
             /** @var Transaction $transaction */
@@ -27,7 +29,8 @@ class TransactionController extends Controller
                 ->where('user_id', Auth::id())
                 ->firstOrFail();
 
-            $paymentMethod = $this->paymentMethodService->getPaymentMethod();
+           
+            $paymentMethod = PaymentMethod::query()->where('id', $transaction->payment_method_id)->firstOrFail();
 
             return view('transactions.show', [
                 'transaction' => $transaction,
@@ -50,7 +53,8 @@ class TransactionController extends Controller
 
         abort_if(!in_array($transaction->code, $transactionCodes), 404);
 
-        $paymentMethod = $this->paymentMethodService->getPaymentMethod();
+        $paymentMethod = PaymentMethod::query()->where('id', $transaction->payment_method_id)->firstOrFail();
+
 
         return view('transactions.show', [
             'transaction' => $transaction,
