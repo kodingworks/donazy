@@ -70,7 +70,7 @@ class TransactionWaitingForPayment extends Notification implements ShouldQueue
     {
         return (new WebPushMessage)
             ->title('Donasi sedang menunggu pembayaran')
-            ->icon('/images/logo.png')
+            ->icon('https://i.ibb.co/F7K52H7/donazy-logo-rounded.png')
             ->body('Segera salurkan donasi pilihan anda.')
             ->data(route('transactions.show', ['code' => $this->transaction->code]))
             ->options(['TTL' => 300]);

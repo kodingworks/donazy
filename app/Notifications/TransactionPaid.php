@@ -63,7 +63,7 @@ class TransactionPaid extends Notification implements ShouldQueue
     {
         return (new WebPushMessage)
             ->title('Donasi sudah diterima')
-            ->icon('/images/logo.png')
+            ->icon('https://i.ibb.co/F7K52H7/donazy-logo-rounded.png')
             ->body('Terima kasih atas donasi anda.')
             ->data(route('transactions.show', ['code' => $this->transaction->code]))
             ->options(['TTL' => 300]);

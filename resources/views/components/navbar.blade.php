@@ -2,7 +2,7 @@
     <div x-data="{ open: false }" class="flex flex-col py-4 md:items-center md:justify-between md:flex-row">
         <div class="flex flex-row items-center justify-between">
             <a href="#" class="block">
-                <img src="/images/logo.png" alt="{{ Config::get('app.name') }}" class="h-10">
+                <img src="https://i.ibb.co/F7K52H7/donazy-logo-rounded.png" alt="{{ Config::get('app.name') }}" class="h-10">
             </a>
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" x-on:click="open = !open">
                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">

@@ -18,6 +18,8 @@ Segera salurkan donasi pilihan anda yaitu **{{ $transaction->campaign->name }}**
 
 Mohon transfer sesuai dengan nominal total pembayaran.
 
+Angka dibelakang berfungsi sebagai kode unik untuk membedakan donasi anda dengan donasi lainnya.
+
 Donasi anda akan terverifikasi oleh sistem secara otomatis maksimal 30 menit.
 
 Anda akan mendapatkan notifikasi via email apabila donasi anda telah diterima.
@@ -25,7 +27,7 @@ Anda akan mendapatkan notifikasi via email apabila donasi anda telah diterima.
 Jazaakumullahu khairan.
 
 <p style="color: #23925C; font-weight: bold">{{ Config::get('app.name') }}</p>
-<img src="{{ asset('images/logo.png') }}" width="100" />
+<img src="{{ asset('https://i.ibb.co/F7K52H7/donazy-logo-rounded.png') }}" width="100" />
 
 @endcomponent
 

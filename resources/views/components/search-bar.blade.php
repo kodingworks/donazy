@@ -3,7 +3,7 @@
         <x-container>
             <form action="{{ route('campaigns.index') }}" method="GET">
                 <div class="flex items-center space-x-2 p-2">
-                    <img onclick="location.href = 'https://github.com/kodingworks/donazy'" src="/images/logo.png" alt="{{ Config::get('app.name') }}" class="h-12 cursor-pointer">
+                    <img onclick="location.href = 'https://github.com/kodingworks/donazy'" src="/images/donazy.png" alt="{{ Config::get('app.name') }}" class="h-12 cursor-pointer">
                     <label class="block w-full relative text-gray-300 focus-within:text-primary">
                         <input
                             type="search"

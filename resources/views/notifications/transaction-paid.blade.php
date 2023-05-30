@@ -11,7 +11,7 @@ Aamiin Allahumma Aamiin.
 <a href="#" style="color: #23925C">Hubungi Kami</a>
 
 <p style="color: #23925C; font-weight: bold">{{ Config::get('app.name') }}</p>
-<img src="{{ asset('images/logo.png') }}" width="100" />
+<img src="{{ asset('https://i.ibb.co/F7K52H7/donazy-logo-rounded.png') }}" width="100" />
 
 @endcomponent
 

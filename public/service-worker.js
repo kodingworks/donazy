@@ -6,6 +6,7 @@ self.addEventListener("install", function (event) {
                 "/css/app.css",
                 "/js/app.js",
                 "/images/logo.png",
+                "/images/donazy.png",
             ]);
         })
     );
@@ -13,13 +14,16 @@ self.addEventListener("install", function (event) {
 
 self.addEventListener("fetch", function (event) {
     event.respondWith(
-        caches.match(event.request).then(function (response) {
-            return response || fetch(event.request);
-        }).catch(function () {
-            if (event.request.mode == 'navigate') {
-                return caches.match('/offline.html');
-            }
-        })
+        caches
+            .match(event.request)
+            .then(function (response) {
+                return response || fetch(event.request);
+            })
+            .catch(function () {
+                if (event.request.mode == "navigate") {
+                    return caches.match("/offline.html");
+                }
+            })
     );
 });
 
