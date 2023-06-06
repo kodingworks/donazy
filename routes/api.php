@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/artisan', [ArtisanController::class, 'store']);
-Route::get('/campaigns', [CampaignController::class, 'index'])->middleware(\App\Http\Middleware\IsAjax::class);
+Route::get('/campaigns', [ApiCampaignController::class, 'index'])->middleware(\App\Http\Middleware\IsAjax::class);
 Route::prefix('v1')->group(function () {
     Route::controller(ApiCampaignController::class)->prefix('campaigns')->group(function() {
         Route::get('/', 'getList');
